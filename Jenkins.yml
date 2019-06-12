@@ -1,0 +1,14 @@
+---
+pipelineType: maven
+git:
+  project: CODE
+  repo: dockerdemo
+  appName: sampledemo
+  tagDeploys: false
+maven:
+  command:
+    build: "clean package"
+build:
+  branches:
+    develop:
+      deploy: true

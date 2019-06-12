@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampledemo-deployment
+  namespace: javacop
+  labels:
+    app: sampledemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sampledemo
+  template:
+    metadata:
+      labels:
+        app: sampledemo
+    spec:
+      containers:
+      - name: sampledemo-container
+        image: artifactory.transunion.com/docker-dev-local/javacop/sampledemo:v1
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: hostvol
+          mountPath: /aks
+        securityContext:
+         privileged: true
+      volumes:
+       - name: hostvol
+         hostPath:
+          path: /
+      imagePullSecrets:
+      - name: artifactory-cred
