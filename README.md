@@ -17,11 +17,11 @@ Create deployment:
 kubectl create -f deployment.yml
 
 Login to Pod:
-kubectl exec -n javacop -it <Podname> -- /bin/bash
+kubectl exec -n javacop -it "Podname" -- /bin/bash
 
 Create service :
 kubectl create -f service.yml
 
 
 Cheking logs for pod
-kubectl logs <name of pod>
+kubectl logs "podname"
