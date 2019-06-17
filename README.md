@@ -23,5 +23,5 @@ Create service :
 kubectl create -f service.yml
 
 
-Cheking logs for pod
+Cheking logs for pod:
 kubectl logs "podname"
